@@ -35,7 +35,7 @@ public class ActMVC {
         String actFName = String.valueOf(fname);
         String actPhoto = String.valueOf(photo);
 
- // modif
+
 
         acteurDAO.addActeur(new Acteur(1, actName, actFName, actPhoto));
 

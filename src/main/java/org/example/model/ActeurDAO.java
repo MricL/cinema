@@ -1,5 +1,7 @@
 package org.example.model;
 
+import com.mysql.cj.jdbc.MysqlDataSource;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
@@ -14,9 +16,16 @@ public class ActeurDAO {
     // Database Connection will use jdbc driver from the mysql connector jar
     public void Dbconnect() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // connection to mysql
-            con = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            // connection to mysql
+//            con = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
+            MysqlDataSource ds = new MysqlDataSource();
+            ds.setServerName("localhost");
+            ds.setPort(3306);
+            ds.setDatabaseName("cinema");
+            ds.setUser("root");
+            ds.setPassword("");
+            con = ds.getConnection();
 
         } catch (Exception ex) {
             System.out.println(ex);
