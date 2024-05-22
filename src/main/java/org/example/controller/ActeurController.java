@@ -55,9 +55,10 @@ public class ActeurController {
     }
 
     public void afficheActeur(int id){
-        viewActeur.afficheActeur(this.Acteurs,id);
-    }
+        viewActeur.afficheActeur(id,this.Acteurs);
+    } //pour update
 
+    public void supprActeur(int id) {ActeurView.supprActeur(id,Acteurs);} ///pour delete
 
 
 

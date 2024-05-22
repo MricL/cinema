@@ -11,7 +11,7 @@ public class ActeurDAO {
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "";
 
-    Connection con = null;
+    static Connection con = null;
 
     // Database Connection will use jdbc driver from the mysql connector jar
     public void Dbconnect() {
@@ -75,6 +75,7 @@ public class ActeurDAO {
         } catch (Exception ex) {
         }
     }
+
 ///pour modifier la base de donnée
     public void updateActeur(int id, Acteur act) {
         PreparedStatement preparedStatement = null;
@@ -94,6 +95,18 @@ public class ActeurDAO {
             }
             preparedStatement.close();
         } catch (Exception ex) {
-        }
-    }
-}
+        }}
+
+        ///pour supprimer une donnée
+        public static void deleteActeur(int id) {
+            PreparedStatement preparedStatement = null;
+            try {
+                String deleteQuery = "DELETE FROM acteur WHERE id="+id;
+                preparedStatement = con.prepareStatement(deleteQuery);
+                System.out.println("élément supprimé");
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+            } catch (Exception ex) {
+            }
+    }}
+

@@ -62,5 +62,7 @@ public class ActMVC {
 
         //ac.getActeurs();
         ac.afficheActeur(1);  //affiche un acteur grace a son id.
+
+        ac.supprActeur(16);// delete id 16
     }
 }
