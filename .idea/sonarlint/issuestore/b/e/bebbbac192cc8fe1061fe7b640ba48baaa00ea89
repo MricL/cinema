@@ -1,0 +1,17 @@
+
+²
+java:S1598"This file "MySQLExample.java" should be located in "org\example" directory, not in "C:\Users\29010-55-12\Documents\S1-2-java\Java-gradle2\src".(ŠË˜‰ÿÿÿÿÿ8’†ÔÔù1
+e
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(»ñĞÑ8œ†ÔÔù1
+i
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµşÿÿÿÿ8œ†ÔÔù1
+`
+java:S2583"CChange this condition so that it does not always evaluate to "true"(¤òª£8†ÔÔù1
+F
+java:S2115")Add password protection to this database.(»ñĞÑ8¤†ÔÔù1
+<
+java:S6905"Don't use the query "SELECT *".(ß¿Òİ8¥†ÔÔù1
+F	java:S106"+Replace this use of System.out by a logger.(áÏ÷28¦†ÔÔù1
+L	java:S106"+Replace this use of System.out by a logger.(œáŒşøÿÿÿÿ8§†ÔÔù1
+L	java:S106"+Replace this use of System.out by a logger.(š‡äËúÿÿÿÿ8§†ÔÔù1
+G	java:S106!"+Replace this use of System.out by a logger.(½óİ¨8§†ÔÔù1
