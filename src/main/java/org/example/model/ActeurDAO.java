@@ -36,6 +36,7 @@ public class ActeurDAO {
         try {
             Statement statement = con.createStatement();
             String sqlQuery = "SELECT * FROM acteur";
+
             ResultSet resultSet = statement.executeQuery(sqlQuery);
             //process the result set
             while (resultSet.next()){
@@ -60,12 +61,14 @@ public class ActeurDAO {
         PreparedStatement preparedStatement = null;
         try {
             String insertQuery = "INSERT INTO acteur (nom, prenom, photo) VALUES (?, ?, ?)";
+            con.setAutoCommit(false);//////// pour ajouter une secu
             preparedStatement = con.prepareStatement(insertQuery);
 
             preparedStatement.setString(1, act.getNom());
             preparedStatement.setString(2, act.getPrenom());
             preparedStatement.setString(3, act.getPhoto());
             int row = preparedStatement.executeUpdate();
+            con.commit();//////// pour ajouter une secu
             if (row > 0) {
                 System.out.println("Inserted succefully");
             } else {
@@ -73,6 +76,17 @@ public class ActeurDAO {
             }
             preparedStatement.close();
         } catch (Exception ex) {
+            try {//////// pour ajouter une secu
+                con.rollback();//////// pour ajouter une secu
+            } catch (SQLException e) {//////// pour ajouter une secu
+                e.printStackTrace();//////// pour ajouter une secu
+            }
+        }finally {//////// pour ajouter une secu
+            try{//////// pour ajouter une secu
+                preparedStatement.close();//////// pour ajouter une secu
+                con.close();//////// pour ajouter une secu
+            } catch(Exception e) {}//////// pour ajouter une secu
+
         }
     }
 
