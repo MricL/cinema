@@ -2,9 +2,15 @@ package org.example.model;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
+import org.example.HibernateUtil;
+import org.hibernate.Session;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
+
+
+
 
 public class ActeurDAO {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cinema?characterEncoding=utf8";
@@ -55,6 +61,13 @@ public class ActeurDAO {
         return acteurs;
     }
 
+
+    public Acteur getActeur(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        System.out.println( session.get(Acteur.class,id));
+        return (session.get(Acteur.class,id));
+    }
+
     //permet d'ajouter des données dans la base de donnee
 
     public void addActeur(Acteur act) {
@@ -90,7 +103,7 @@ public class ActeurDAO {
         }
     }
 
-///pour modifier la base de donnée
+///pour modifier la base de donnée sans secu
     public void updateActeur(int id, Acteur act) {
         PreparedStatement preparedStatement = null;
         try {

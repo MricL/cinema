@@ -59,10 +59,13 @@ public class ActMVC {
 //        ac.addActeur(new Acteur(3, "Dujardin", "Jean", "duj1.jpg"));
 //        ac.afficheActeur(2);
 //        ac.afficheActeurs();
+//
+//        ac.getActeurs();
 
-        //ac.getActeurs();
-        ac.afficheActeur(1);  //affiche un acteur grace a son id.
 
-        ac.supprActeur(16);// delete id 16
+
+        ac.afficheActeur(26);  //affiche un acteur grace a son id.
+
+//        ac.supprActeur(16);// delete id 16
     }
 }

@@ -1,5 +1,6 @@
 package org.example.controller;
 import org.example.model.Acteur;
+import org.example.model.ActeurDAO;
 import org.example.view.ActeurView;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public class ActeurController {
 
     public List<Acteur> Acteurs;
     private ActeurView viewActeur;
+    private ActeurDAO acteurDAO;
 
 //    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cinema";
 //    private static final String JDBC_USER = "root";
@@ -18,6 +20,7 @@ public class ActeurController {
     public ActeurController() {
         this.Acteurs = new ArrayList<>();
         this.viewActeur = new ActeurView();
+        this.acteurDAO = new ActeurDAO();
     }
 
     public void addActeur(Acteur act){
@@ -54,9 +57,19 @@ public class ActeurController {
         viewActeur.afficheActeurs(Acteurs);
     }
 
+//    public void afficheActeur(int id){
+//        viewActeur.afficheActeur(id,this.Acteurs);
+//    }//pour update
+
+
+
     public void afficheActeur(int id){
-        viewActeur.afficheActeur(id,this.Acteurs);
-    } //pour update
+        Acteur acteur = acteurDAO.getActeur(id);
+
+        if (acteur != null) {
+            viewActeur.afficheActeur(acteur);
+        } else {             System.out.println("Actor not found with ID: " + id);         }
+    }
 
     public void supprActeur(int id) {ActeurView.supprActeur(id,Acteurs);} ///pour delete
 

@@ -1,11 +1,18 @@
 package org.example.model;
 
+import javax.persistence.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// Modele de MVC
+// Modele de MVC             // les @ sont en lien
+
+@Entity
+@Table(name = "acteur")
 public class Acteur {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
     private String prenom;
